@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>location</key>
+	<dict>
+		<key>name</key>
+		<string>Guwahati</string>
+		<key>region</key>
+		<string>Assam</string>
+		<key>country</key>
+		<string>India</string>
+		<key>localtime</key>
+		<date>2025-06-25T11:27:48Z</date>
+	</dict>
+	<key>current</key>
+	<dict>
+		<key>temp_c</key>
+		<real>29.1</real>
+		<key>wind_kph</key>
+		<real>11.9</real>
+		<key>wind_degree</key>
+		<integer>63</integer>
+		<key>precip_mm</key>
+		<integer>0</integer>
+		<key>humidity</key>
+		<integer>75</integer>
+		<key>cloud</key>
+		<integer>75</integer>
+		<key>feelslike_c</key>
+		<real>35.5</real>
+		<key>vis_km</key>
+		<real>3.5</real>
+		<key>uv</key>
+		<real>7.5</real>
+	</dict>
+</dict>
+</plist>

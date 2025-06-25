@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB" customClass="MenuView" customModule="weather_app" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="249" height="700"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="happy" translatesAutoresizingMaskIntoConstraints="NO" id="fb6-JT-fU7">
+                    <rect key="frame" x="84.666666666666671" y="128" width="80.000000000000014" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="CHv-ZW-Qbq"/>
+                        <constraint firstAttribute="width" constant="80" id="o0z-iH-rKW"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hq3-ma-OT4">
+                    <rect key="frame" x="12" y="220" width="225" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="5XJ-bm-2KP"/>
+                    </constraints>
+                    <string key="text">Hi, Prahash!
+How's the weather?</string>
+                    <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="scrollableAxes" style="plain" separatorStyle="default" rowHeight="65" estimatedRowHeight="-1" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ob-3z-HNF">
+                    <rect key="frame" x="0.0" y="272" width="237" height="325"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="325" id="fES-8Z-HQy"/>
+                    </constraints>
+                    <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
+                    <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© Prahash Barman" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gig-Zz-KKm">
+                    <rect key="frame" x="12" y="667" width="225" height="11.666666666666629"/>
+                    <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="10"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Pt-Th-BXY">
+                    <rect key="frame" x="12" y="678.66666666666663" width="225" height="9.3333333333333712"/>
+                    <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="8"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" red="0.96841150522232056" green="0.76000082114860046" blue="0.70694531784067449" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="fb6-JT-fU7" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="4CZ-sa-lYF"/>
+                <constraint firstItem="4ob-3z-HNF" firstAttribute="top" secondItem="hq3-ma-OT4" secondAttribute="bottom" constant="12" id="8bG-wk-V3l"/>
+                <constraint firstAttribute="bottom" secondItem="9Pt-Th-BXY" secondAttribute="bottom" constant="12" id="Ave-Ym-kFE"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4ob-3z-HNF" secondAttribute="trailing" constant="12" id="FPi-Kx-Cg6"/>
+                <constraint firstItem="hq3-ma-OT4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="J2F-qv-QI6"/>
+                <constraint firstItem="fb6-JT-fU7" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MEL-Fn-FBW"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Gig-Zz-KKm" secondAttribute="trailing" constant="12" id="RQd-wt-eAR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hq3-ma-OT4" secondAttribute="trailing" constant="12" id="aIU-UX-W5Q"/>
+                <constraint firstAttribute="trailing" secondItem="9Pt-Th-BXY" secondAttribute="trailing" constant="12" id="cHr-Fw-01p"/>
+                <constraint firstItem="9Pt-Th-BXY" firstAttribute="top" secondItem="Gig-Zz-KKm" secondAttribute="bottom" id="cn2-1C-QhV"/>
+                <constraint firstItem="9Pt-Th-BXY" firstAttribute="top" secondItem="Gig-Zz-KKm" secondAttribute="bottom" id="dAp-qc-5af"/>
+                <constraint firstItem="hq3-ma-OT4" firstAttribute="top" secondItem="fb6-JT-fU7" secondAttribute="bottom" constant="12" id="h6g-1G-njr"/>
+                <constraint firstItem="4ob-3z-HNF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="qex-7V-EuO"/>
+                <constraint firstItem="Gig-Zz-KKm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="rQI-zd-w4F"/>
+                <constraint firstItem="9Pt-Th-BXY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="zui-4p-N3a"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="menuTable" destination="4ob-3z-HNF" id="6xz-Db-3YP"/>
+                <outlet property="versionLabel" destination="9Pt-Th-BXY" id="HSN-A6-JSU"/>
+                <outlet property="welcomeLabel" destination="hq3-ma-OT4" id="dpf-2Z-c1o"/>
+            </connections>
+            <point key="canvasLocation" x="-54.198473282442748" y="150.70422535211267"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="happy" width="512" height="512"/>
+    </resources>
+</document>
