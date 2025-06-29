@@ -47,9 +47,9 @@
                         <constraint firstAttribute="width" constant="180" id="YuZ-1D-bmo"/>
                     </constraints>
                 </stackView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="Qup-bh-Obh">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="Qup-bh-Obh">
                     <rect key="frame" x="339" y="12" width="117" height="156"/>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="RKy-I3-h9O"/>

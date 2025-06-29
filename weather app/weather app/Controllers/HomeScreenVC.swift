@@ -19,7 +19,6 @@ class HomeScreenVC: UIViewController {
         super.viewDidLoad()
         
         viewModel = HomeScreenVM(favouriteCities: [], delegate: self)
-        updateUI()
         
         //TODO: update view model from saved data
         
@@ -101,6 +100,7 @@ extension HomeScreenVC: HomeScreenVMDelegate {
     func updateUI() {
         DispatchQueue.main.async { [weak self] in
             self?.assignValues()
+            self?.view.layoutIfNeeded()
         }
     }
     
