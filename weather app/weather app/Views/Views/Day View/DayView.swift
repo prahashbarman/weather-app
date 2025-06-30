@@ -18,8 +18,6 @@ class DayView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.location?.text = "Guwahati"
-        self.temp?.text = "26° C"
     }
     
 }

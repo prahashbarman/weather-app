@@ -15,6 +15,7 @@ class MenuView: UIView {
         super.awakeFromNib()
         
         menuTable?.register(UINib(nibName: "FavCityCell", bundle: Bundle.main), forCellReuseIdentifier: "favCityCell")
+        menuTable?.register(UINib(nibName: "ExpandedFavCityCell", bundle: Bundle.main), forCellReuseIdentifier: "expandedFavCityCell")
         if let version: String = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             versionLabel?.text = "App Version: v" + version
         }

@@ -15,9 +15,19 @@ class HomeScreenVM {
     var favouriteCities: [String]
     let delegate: HomeScreenVMDelegate?
     
-    init(favouriteCities: [String] = [], delegate: HomeScreenVMDelegate?) {
-        self.favouriteCities = favouriteCities
+    init(delegate: HomeScreenVMDelegate?) {
         self.delegate = delegate
+        var cities: [String] = []
+        do {
+            let path = Bundle.main.path(forResource: "ManagedCities", ofType: "plist") ?? ""
+            let url = URL(fileURLWithPath: path)
+            let data = try Data(contentsOf: url)
+            cities = DataParser.shared.parsePlistToFavCitiesArray(data)
+        }
+        catch {
+            print("error found while decoding fav city plist data")
+        }
+        self.favouriteCities = cities
         do {
             let path = Bundle.main.path(forResource: "HomeWeather", ofType: "plist") ?? ""
             let url = URL(fileURLWithPath: path)
@@ -29,7 +39,7 @@ class HomeScreenVM {
             }
         }
         catch {
-            print("error found while decoding")
+            print("error found while decoding home weather plist data")
         }
     }
     

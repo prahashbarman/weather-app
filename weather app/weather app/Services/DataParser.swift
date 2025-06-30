@@ -51,4 +51,17 @@ class DataParser {
             return nil
         }
     }
+    
+    func parsePlistToFavCitiesArray(_ data: Data?) -> [String] {
+        var cities: [String] = []
+        do {
+            if let data = data {
+                cities = try PropertyListSerialization.propertyList(from: data, options: .mutableContainers ,format: nil) as! [String]
+            }
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+        return cities
+    }
 }

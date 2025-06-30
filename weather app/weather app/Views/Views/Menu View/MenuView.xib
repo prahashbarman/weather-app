@@ -20,43 +20,45 @@
                         <constraint firstAttribute="width" constant="80" id="o0z-iH-rKW"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hq3-ma-OT4">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hq3-ma-OT4">
                     <rect key="frame" x="12" y="220" width="225" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="5XJ-bm-2KP"/>
                     </constraints>
                     <string key="text">Hi, Prahash!
 How's the weather?</string>
-                    <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="13"/>
-                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="12"/>
+                    <color key="textColor" red="0.74901960779999999" green="0.96862745100000003" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="scrollableAxes" style="plain" separatorStyle="default" rowHeight="65" estimatedRowHeight="-1" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ob-3z-HNF">
-                    <rect key="frame" x="0.0" y="272" width="237" height="325"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="scrollableAxes" style="plain" separatorStyle="default" rowHeight="66" estimatedRowHeight="38" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ob-3z-HNF">
+                    <rect key="frame" x="0.0" y="272" width="237" height="380"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="325" id="fES-8Z-HQy"/>
+                        <constraint firstAttribute="height" constant="380" id="fES-8Z-HQy"/>
                     </constraints>
-                    <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
+                    <viewLayoutGuide key="contentLayoutGuide" id="uQT-wj-m4g"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="8A0-Mh-cB6"/>
                     <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© Prahash Barman" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gig-Zz-KKm">
-                    <rect key="frame" x="12" y="667" width="225" height="11.666666666666629"/>
-                    <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="10"/>
-                    <nil key="textColor"/>
+                    <rect key="frame" x="12" y="671.33333333333337" width="225" height="8.3333333333333712"/>
+                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="8"/>
+                    <color key="textColor" red="0.74901960779999999" green="0.96862745100000003" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Pt-Th-BXY">
-                    <rect key="frame" x="12" y="678.66666666666663" width="225" height="9.3333333333333712"/>
-                    <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="8"/>
-                    <nil key="textColor"/>
+                    <rect key="frame" x="12" y="679.66666666666663" width="225" height="8.3333333333333712"/>
+                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="8"/>
+                    <color key="textColor" red="0.74901960779999999" green="0.96862745100000003" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" red="0.96841150522232056" green="0.76000082114860046" blue="0.70694531784067449" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="fb6-JT-fU7" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="4CZ-sa-lYF"/>
                 <constraint firstItem="4ob-3z-HNF" firstAttribute="top" secondItem="hq3-ma-OT4" secondAttribute="bottom" constant="12" id="8bG-wk-V3l"/>
