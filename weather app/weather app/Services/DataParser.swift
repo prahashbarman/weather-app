@@ -13,9 +13,8 @@ class DataParser {
     
     func parseToWeatherData(_ data: Data) -> WeatherDataModel? {
         do {
-            let data = try JSONDecoder().decode(WeatherDataModel.self, from: data)
-            //TODO: UPDATE UI - Show data to user
-            print(data)
+            let weatherData: WeatherDataModel = try JSONDecoder().decode(WeatherDataModel.self, from: data)
+            return weatherData
         }
         catch {
             print(error.localizedDescription)
@@ -28,6 +27,7 @@ class DataParser {
             let weather = try PropertyListSerialization.propertyList(from: data, options: .mutableContainers ,format: nil) as! [String:Any]
             let location: [String:Any] = weather["location"] as! [String : Any]
             let current: [String:Any] = weather["current"] as! [String : Any]
+            let condition: [String : String] = current["condition"] as! [String : String]
             let locationInfo: LocationInfo = LocationInfo(name: location["name"] as! String,
                                                           region: location["region"] as! String,
                                                           country: location["country"] as! String,
@@ -40,7 +40,8 @@ class DataParser {
                                                        cloud: (current["cloud"] as! NSNumber).intValue,
                                                        feelslike_c: (current["feelslike_c"] as! NSNumber).floatValue,
                                                        vis_km: (current["vis_km"] as! NSNumber).floatValue,
-                                                       uv: (current["uv"] as! NSNumber).floatValue)
+                                                       uv: (current["uv"] as! NSNumber).floatValue,
+                                                       condition: ConditionInfo(text: condition["text"]!, icon: condition["icon"]!))
             let weatherDataModel: WeatherDataModel = WeatherDataModel(location: locationInfo, current: currentInfo)
             return weatherDataModel
         }
@@ -48,5 +49,18 @@ class DataParser {
             print(error.localizedDescription)
             return nil
         }
+    }
+    
+    func parsePlistToFavCitiesArray(_ data: Data?) -> [String] {
+        var cities: [String] = []
+        do {
+            if let data = data {
+                cities = try PropertyListSerialization.propertyList(from: data, options: .mutableContainers ,format: nil) as! [String]
+            }
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+        return cities
     }
 }

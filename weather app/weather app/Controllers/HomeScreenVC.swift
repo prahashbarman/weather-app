@@ -9,33 +9,40 @@ import UIKit
 
 class HomeScreenVC: UIViewController {
     
-    var menuTableView: UITableView?
-    var menuViewWidthExtended: Bool = false
-    var menuViewLeadingConstraint: NSLayoutConstraint?
+    private var menuTableView: UITableView?
+    private var menuViewWidthExtended: Bool = false
+    private var menuViewLeadingConstraint: NSLayoutConstraint?
     private var dayView: DayView?
     private var viewModel: HomeScreenVM?
+    private var expandedRowIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = HomeScreenVM(favouriteCities: [], delegate: self)
-        updateUI()
+        viewModel = HomeScreenVM(delegate: self)
         
         //TODO: update view model from saved data
         
+        setupDayView()
+        setupMenuView()
+    }
+    
+    private func setupDayView() {
         let dayViewNib = UINib(nibName: "DayView", bundle: Bundle.main)
         if let dayView = dayViewNib.instantiate(withOwner: nil, options: nil).first as? DayView {
             self.dayView = dayView
             view.addSubview(dayView)
             dayView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 12).isActive = true
             dayView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12).isActive = true
-            dayView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
+            dayView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
             dayView.heightAnchor.constraint(equalToConstant: 140).isActive = true
             dayView.descriptorImage?.layer.cornerRadius = 8
             dayView.layer.cornerRadius = 12
             dayView.layer.masksToBounds = true
         }
-        
+    }
+    
+    private func setupMenuView() {
         let menuViewNib = UINib(nibName: "MenuView", bundle: Bundle.main)
         if let menuView = menuViewNib.instantiate(withOwner: nil, options: nil).first as? MenuView {
             view.addSubview(menuView)
@@ -58,8 +65,8 @@ class HomeScreenVC: UIViewController {
         }
     }
     
-    
-    @IBAction func menuButtonTapped(_ sender: Any?) {
+    //MARK: User Interaction Handlers
+    @IBAction func slideMenuView(_ sender: Any?) {
         if menuViewWidthExtended {
             menuViewWidthExtended = false
             UIView.animate(withDuration: 0.3) { [weak self] in
@@ -78,36 +85,80 @@ class HomeScreenVC: UIViewController {
     @IBAction func searchButtonTapped(_ sender: Any?) {
         
     }
+    
+    @IBAction func showDetailForecastedWeather(_ sender: Any?) {
+        let forecastView: UIViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ForecastView")
+        self.navigationController?.pushViewController(forecastView, animated: true)
+    }
    
     @objc func handleGesture() {
         if menuViewWidthExtended {
-            menuButtonTapped(nil)
+            slideMenuView(nil)
         }
     }
 }
 
+//MARK: Table View Data Source And Delegate Extension
 extension HomeScreenVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.favouriteCities.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = menuTableView?.dequeueReusableCell(withIdentifier: "favCityCell") as? FavCityCell ?? UITableViewCell()
-        return cell
+        var cell: FavCityCell? = menuTableView?.dequeueReusableCell(withIdentifier: "favCityCell") as? FavCityCell
+        if indexPath.row == expandedRowIndex {
+            cell = menuTableView?.dequeueReusableCell(withIdentifier: "expandedFavCityCell") as? ExpandedFavCityCell
+        }
+        guard indexPath.row < viewModel?.favouriteCities.count ?? 0 else { return UITableViewCell() }
+        cell?.cityNameLabel?.text = viewModel?.favouriteCities[indexPath.row]
+        cell?.delegate = self
+        return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == expandedRowIndex {
+            return 66
+        }
+        return 38
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if expandedRowIndex == indexPath.row {
+            expandedRowIndex = nil
+        }
+        else {
+            expandedRowIndex = indexPath.row
+        }
+        tableView.reloadData()
     }
 }
 
+//MARK: HomeScreenVMDelegate Extension
 extension HomeScreenVC: HomeScreenVMDelegate {
     func updateUI() {
         DispatchQueue.main.async { [weak self] in
             self?.assignValues()
+            self?.view.layoutIfNeeded()
         }
     }
     
     func assignValues() {
         dayView?.location?.text = viewModel?.dayViewModel?.cityName
-        dayView?.temp?.text = String(viewModel?.dayViewModel?.currentTemp ?? 0.0)
+        dayView?.temp?.text = String(viewModel?.dayViewModel?.currentTemp ?? 0.0) + "°C"
         dayView?.summary?.text = viewModel?.dayViewModel?.weatherDescription
-        dayView?.descriptorImage?.image = viewModel?.dayViewModel?.image
+        dayView?.descriptorImage?.image = viewModel?.dayViewModel?.image?.withTintColor(#colorLiteral(red: 0.6864583492, green: 0.9764811397, blue: 0.9336461425, alpha: 1))
+    }
+}
+
+
+//MARK: FavouriteCitySelectionDelegate Extension
+extension HomeScreenVC: FavouriteCitySelectionDelegate {
+    func didSelectFavouriteCity(cityName: String) {
+        //
+    }
+    
+    func didSetHomeCity(cityName: String) {
+        viewModel?.updateHomeCity(cityName)
+        slideMenuView(nil)
     }
 }

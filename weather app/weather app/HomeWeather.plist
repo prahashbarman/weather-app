@@ -33,6 +33,13 @@
 		<real>3.5</real>
 		<key>uv</key>
 		<real>7.5</real>
+		<key>condition</key>
+		<dict>
+			<key>text</key>
+			<string>Mist</string>
+			<key>icon</key>
+			<string>//cdn.weatherapi.com/weather/64x64/day/143.png</string>
+		</dict>
 	</dict>
 </dict>
 </plist>

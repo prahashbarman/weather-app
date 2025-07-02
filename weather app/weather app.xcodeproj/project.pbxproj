@@ -33,7 +33,9 @@
 		817BE6A02E06A6EE00D1BE4D /* Exceptions for "weather app" folder in "weather appUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Controllers/ForecastedWeatherViewController.swift,
 				"Views/Views/Day View/DayView.swift",
+				"Views/Views/Menu View/ExpandedFavCityCell.xib",
 				"Views/Views/Menu View/FavCityCell.swift",
 				"Views/Views/Menu View/FavCityCell.xib",
 				"Views/Views/Menu View/MenuView.swift",
@@ -44,10 +46,12 @@
 		819153CB2E09C04500BA39AC /* Exceptions for "weather app" folder in "weather appTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Controllers/ForecastedWeatherViewController.swift,
 				Models/WeatherDataModel.swift,
 				Services/DataParser.swift,
 				Services/NetworkManager.swift,
 				"View Models/HomeScreenVM.swift",
+				"Views/Views/Menu View/ExpandedFavCityCell.xib",
 				"Views/Views/Menu View/FavCityCell.swift",
 				"Views/Views/Menu View/FavCityCell.xib",
 				"Views/Views/Menu View/MenuView.swift",
