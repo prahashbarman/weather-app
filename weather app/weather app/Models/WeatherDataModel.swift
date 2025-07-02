@@ -29,4 +29,15 @@ struct WeatherInfo: Codable {
     let feelslike_c: Float
     let vis_km: Float
     let uv: Float
+    let condition: ConditionInfo
+}
+
+struct ConditionInfo: Codable {
+    let text: String
+    let icon: String
+    
+    init(text: String, icon: String) {
+        self.text = text
+        self.icon = icon
+    }
 }

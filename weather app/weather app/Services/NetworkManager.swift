@@ -5,7 +5,7 @@
 //  Created by Prahash Barman on 25/06/25.
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
     fileprivate static let APIURL: String = "https://api.weatherapi.com/v1/"
@@ -46,6 +46,19 @@ class NetworkManager {
             }
             guard let weather: WeatherDataModel = DataParser.shared.parseToWeatherData(data) else { return }
             completion(weather)
+        }.resume()
+    }
+    
+    func getWeatherIcon(urlString: String, completion: @escaping (UIImage?) -> ()) {
+        let urlRequest: URLRequest = URLRequest(url: URL(string: "https:" + urlString)!)
+        
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            guard error == nil, let data = data else {
+                print(error.debugDescription)
+                return
+            }
+            let image: UIImage? = UIImage(data: data)
+            completion(image)
         }.resume()
     }
 }

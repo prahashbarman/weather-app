@@ -10,23 +10,36 @@ protocol HomeScreenVMDelegate: AnyObject {
     func updateUI()
 }
 
-struct HomeScreenVM {
+class HomeScreenVM {
     var dayViewModel: DayViewModel?
     var favouriteCities: [String]
     let delegate: HomeScreenVMDelegate?
     
-    init(favouriteCities: [String] = [], delegate: HomeScreenVMDelegate?) {
-        self.favouriteCities = favouriteCities
+    init(delegate: HomeScreenVMDelegate?) {
         self.delegate = delegate
+        var cities: [String] = []
+        do {
+            let path = Bundle.main.path(forResource: "ManagedCities", ofType: "plist") ?? ""
+            let url = URL(fileURLWithPath: path)
+            let data = try Data(contentsOf: url)
+            cities = DataParser.shared.parsePlistToFavCitiesArray(data)
+        }
+        catch {
+            print("error found while decoding fav city plist data")
+        }
+        self.favouriteCities = cities
         do {
             let path = Bundle.main.path(forResource: "HomeWeather", ofType: "plist") ?? ""
             let url = URL(fileURLWithPath: path)
             let data = try Data(contentsOf: url)
             let weather = DataParser.shared.parsePlistToWeatherData(data)
-            dayViewModel = getDayViewModel(with: weather)
+            getDayViewModel(with: weather) { [weak self] model in
+                self?.dayViewModel = model
+                self?.delegate?.updateUI()
+            }
         }
         catch {
-            print("error found while decoding")
+            print("error found while decoding home weather plist data")
         }
     }
     
@@ -44,19 +57,24 @@ struct HomeScreenVM {
     
     func getCurrentWeather(for city: String) {
         DispatchQueue.global(qos: .userInteractive).async {
-            NetworkManager.shared.getCurrentWeather(for: city) { weather in
-                updateCurrentWeather(with: weather)
+            NetworkManager.shared.getCurrentWeather(for: city) { [weak self] weather in
+                self?.updateCurrentWeather(with: weather)
             }
         }
     }
     
-    func getDayViewModel(with weather: WeatherDataModel?) -> DayViewModel {
-        return DayViewModel(
-            cityName: weather?.location.name ?? "Guwahati",
-            currentTemp: weather?.current.temp_c ?? 10.0,
-            weatherDescription: String(weather?.current.feelslike_c ?? 0.0),
-            image: UIImage(named: "rainy")
-        )
+    func getDayViewModel(with weather: WeatherDataModel?, completion: @escaping (DayViewModel) -> ()) {
+        guard let weather = weather else { return }
+        
+        let imageUrlString = weather.current.condition.icon
+        NetworkManager.shared.getWeatherIcon(urlString: imageUrlString) { image in
+            let dayViewModel = DayViewModel(
+                cityName: weather.location.name,
+                currentTemp: weather.current.temp_c,
+                weatherDescription: weather.current.condition.text,
+                image: image)
+            completion(dayViewModel)
+        }
     }
 }
 

@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZcY-Rz-Ama">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home ScreenVC-->
+        <!--Home City Weather-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeScreenVC" customModule="weather_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="690"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ai-eM-Ndd">
-                                <rect key="frame" x="12" y="122" width="28" height="28"/>
+                                <rect key="frame" x="12" y="49" width="26" height="26"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="28" id="ILY-b3-1wh"/>
-                                    <constraint firstAttribute="height" constant="28" id="N7Q-5p-jyv"/>
+                                    <constraint firstAttribute="width" constant="26" id="EPr-tf-mXP"/>
+                                    <constraint firstAttribute="height" constant="26" id="N7Q-5p-jyv"/>
                                 </constraints>
                                 <color key="tintColor" red="0.74787560239999995" green="0.96841150519999997" blue="0.93436272590000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -34,32 +34,124 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBP-2w-gdt">
-                                <rect key="frame" x="353" y="122" width="28" height="28"/>
+                                <rect key="frame" x="355" y="49" width="26" height="26"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="28" id="Jp8-Uq-Anf"/>
-                                    <constraint firstAttribute="height" constant="28" id="xGx-Qg-z1i"/>
+                                    <constraint firstAttribute="width" constant="26" id="BzW-Zn-XnA"/>
+                                    <constraint firstAttribute="height" constant="26" id="xGx-Qg-z1i"/>
                                 </constraints>
-                                <color key="tintColor" red="0.74787560239999995" green="0.96841150519999997" blue="0.93436272590000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.74901960784313726" green="0.96862745098039216" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
                                 <connections>
                                     <action selector="searchButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vdw-LU-gzq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTx-bA-CVk">
+                                <rect key="frame" x="104" y="563" width="185" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="AEo-Ce-fEq"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="See detailed forecast">
+                                    <fontDescription key="titleFontDescription" name="Copperplate" family="Copperplate" pointSize="14"/>
+                                    <color key="baseForegroundColor" red="0.74787560239999995" green="0.96841150519999997" blue="0.93436272590000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="showDetailForecastedWeather:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nyb-0d-0mN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YTx-bA-CVk" secondAttribute="bottom" constant="60" id="E81-er-e00"/>
                             <constraint firstItem="6Ai-eM-Ndd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="JXX-Ih-rtQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nBP-2w-gdt" secondAttribute="trailing" constant="12" id="NSe-t3-dv5"/>
-                            <constraint firstItem="nBP-2w-gdt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="4" id="aX2-Jn-cFF"/>
-                            <constraint firstItem="6Ai-eM-Ndd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="4" id="jZr-pF-USz"/>
+                            <constraint firstItem="nBP-2w-gdt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="aX2-Jn-cFF"/>
+                            <constraint firstItem="YTx-bA-CVk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bHt-Lq-mYM"/>
+                            <constraint firstItem="6Ai-eM-Ndd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="jZr-pF-USz"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Home City Weather" id="ISo-lC-8v4">
+                        <barButtonItem key="backBarButtonItem" title=" " id="ihg-60-hGr"/>
+                    </navigationItem>
                     <size key="freeformSize" width="393" height="852"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="973.28244274809151" y="-2.1126760563380285"/>
+        </scene>
+        <!--Forecasted Weather View Controller-->
+        <scene sceneID="sgq-dz-bvV">
+            <objects>
+                <viewController storyboardIdentifier="ForecastView" id="uth-Ko-PDt" customClass="ForecastedWeatherViewController" customModule="weather_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nag-dc-dcL">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dFi-EP-oNP">
+                                <rect key="frame" x="76.666666666666686" y="142" width="240" height="31"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="SiF-gh-BZd"/>
+                                    <constraint firstAttribute="width" constant="240" id="r30-b5-Alj"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Tomorrow"/>
+                                    <segment title="Next 3 days"/>
+                                </segments>
+                                <color key="tintColor" red="0.74901960779999999" green="0.96862745100000003" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="selectedSegmentTintColor" red="0.74901960779999999" green="0.96862745100000003" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </segmentedControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QWV-kU-Pnd"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dFi-EP-oNP" firstAttribute="centerX" secondItem="Nag-dc-dcL" secondAttribute="centerX" id="Pbx-g2-JiK"/>
+                            <constraint firstItem="dFi-EP-oNP" firstAttribute="top" secondItem="QWV-kU-Pnd" secondAttribute="top" constant="24" id="giV-mk-1D5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="segmentedControl" destination="dFi-EP-oNP" id="Jcq-CF-pig"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="geM-jX-k1M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1927.4809160305342" y="-1.4084507042253522"/>
+        </scene>
+        <!--Weather App-->
+        <scene sceneID="zB7-Qm-daF">
+            <objects>
+                <navigationController title="Weather App" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="ZcY-Rz-Ama" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4p-2d-FtW">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                        <color key="tintColor" red="0.74901960779999999" green="0.96862745100000003" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="20"/>
+                            <color key="textColor" red="0.74787560239999995" green="0.96841150519999997" blue="0.93436272590000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="textShadowColor" systemColor="tableBackgroundColor"/>
+                        </textAttributes>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textAttributes key="titleTextAttributes">
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="20"/>
+                                <color key="textColor" red="0.74787560239999995" green="0.96841150519999997" blue="0.93436272590000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </textAttributes>
+                        </navigationBarAppearance>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="w5l-jN-USQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="avL-Wg-mcf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
         </scene>
@@ -67,5 +159,8 @@
     <resources>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <systemColor name="tableBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
